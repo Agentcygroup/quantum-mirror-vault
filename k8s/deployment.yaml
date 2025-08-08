@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quantum-mirror-vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quantum-mirror-vault
+  template:
+    metadata:
+      labels:
+        app: quantum-mirror-vault
+    spec:
+      containers:
+      - name: quantum-mirror-vault
+        image: Agentcygroup/quantum-mirror-vault:latest
+        ports:
+        - containerPort: 8000
